@@ -1,0 +1,13 @@
+name: yummy
+services:
+  frontend:
+    container_name: yummy_frontend
+    restart: always
+    build: .
+    ports: 
+      - "8080:8080"
+    networks:
+      - yummy_yummy_net
+networks:
+  yummy_yummy_net:
+    external: true
