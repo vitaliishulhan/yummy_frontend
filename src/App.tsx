@@ -5,7 +5,7 @@ import { Flex, Pagination } from "antd";
 import ProductsGrid from "components/ProductsGrid";
 
 function App() {
-  const [paginationParams, setPaginationParams] = useState<[page: number, pageSize: number]>([1, 6]);
+  const [paginationParams, setPaginationParams] = useState<[page: number, pageSize: number]>([1, 5]);
 
   const { loading, data } = useApi(ProductApi.getProducts, paginationParams);
 
@@ -16,6 +16,8 @@ function App() {
         <Pagination
           current={paginationParams[0]}
           pageSize={paginationParams[1]}
+          showSizeChanger
+          pageSizeOptions={[5, 10, 25, 50, 100]}
           total={data?.pagination.totalCount}
           onChange={(p, pz) => {
             setPaginationParams([p, pz]);
