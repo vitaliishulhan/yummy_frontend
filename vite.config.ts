@@ -9,8 +9,10 @@ export default defineConfig({
     react(),
   ],
   preview: {
-    port: 8080,
+    port: 80,
     strictPort: true,
+    allowedHosts: true,
+    cors: true,
   },
   server: {
     port: 8080,
